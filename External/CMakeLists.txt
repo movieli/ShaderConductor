@@ -49,12 +49,14 @@ function(ApplyPatch name patch)
     endif()
 endfunction()
 
-UpdateExternalLib("cxxopts" "https://github.com/jarro2783/cxxopts.git" ${cxxopts_REV})
-UpdateExternalLib("googletest" "https://github.com/google/googletest.git" ${googletest_REV})
-UpdateExternalLib("SPIRV-Headers" "https://github.com/KhronosGroup/SPIRV-Headers.git" ${SPIRV_Headers_REV})
-UpdateExternalLib("SPIRV-Tools" "https://github.com/KhronosGroup/SPIRV-Tools.git" ${SPIRV_Tools_REV})
-UpdateExternalLib("DirectXShaderCompiler" "https://github.com/Microsoft/DirectXShaderCompiler.git" ${DirectXShaderCompiler_REV})
-UpdateExternalLib("SPIRV-Cross" "https://github.com/KhronosGroup/SPIRV-Cross.git" ${SPIRV_Cross_REV})
+
+# make cmake fast
+# UpdateExternalLib("cxxopts" "https://github.com/jarro2783/cxxopts.git" ${cxxopts_REV})
+# UpdateExternalLib("googletest" "https://github.com/google/googletest.git" ${googletest_REV})
+# UpdateExternalLib("SPIRV-Headers" "https://github.com/KhronosGroup/SPIRV-Headers.git" ${SPIRV_Headers_REV})
+# UpdateExternalLib("SPIRV-Tools" "https://github.com/KhronosGroup/SPIRV-Tools.git" ${SPIRV_Tools_REV})
+# UpdateExternalLib("DirectXShaderCompiler" "https://github.com/Microsoft/DirectXShaderCompiler.git" ${DirectXShaderCompiler_REV})
+# UpdateExternalLib("SPIRV-Cross" "https://github.com/KhronosGroup/SPIRV-Cross.git" ${SPIRV_Cross_REV})
 
 set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
 set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
@@ -137,7 +139,7 @@ foreach(target
     "LLVMLinker" "LLVMLTO" "LLVMMSSupport" "LLVMOption" "LLVMProfileData" "LLVMScalarOpts" "LLVMSupport" "LLVMTableGen" "LLVMTarget"
     "LLVMTransformUtils" "LLVMVectorize"
     "ClangDriverOptions" "DxcEtw" "intrinsics_gen" "TablegenHLSLOptions"
-    "clang-tblgen" "GIT_COMMIT_INFO_ALWAYS_REBUILD" "llvm-tblgen")
+    "clang-tblgen" "GIT_COMMIT_INFO_ALWAYS_REBUILD" "llvm-tblgen" "hlsl_version_autogen")
     get_target_property(vsFolder ${target} FOLDER)	
     if(NOT vsFolder)
         set(vsFolder "")
