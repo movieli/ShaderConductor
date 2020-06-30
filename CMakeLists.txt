@@ -104,67 +104,67 @@ add_subdirectory(External)
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT "ShaderConductorCmd")
 
-foreach(target
-    "clang" "dxc"
-    "clangAnalysis" "clangAST" "clangASTMatchers" "clangBasic" "clangCodeGen" "clangDriver" "clangEdit" "clangFormat" "clangFrontend"
-    "clangFrontendTool" "clangIndex" "clangLex" "clangParse" "clangRewrite" "clangRewriteFrontend" "clangSema" "clangSPIRV" "clangTooling"
-    "clangToolingCore" "dxcompiler" "libclang"
-    "ClangAttrClasses" "ClangAttrDump" "ClangAttrHasAttributeImpl" "ClangAttrImpl" "ClangAttrList" "ClangAttrParsedAttrImpl"
-    "ClangAttrParsedAttrKinds" "ClangAttrParsedAttrList" "ClangAttrParserStringSwitches" "ClangAttrPCHRead" "ClangAttrPCHWrite"
-    "ClangAttrSpellingListIndex" "ClangAttrTemplateInstantiate" "ClangAttrVisitor" "ClangCommentCommandInfo" "ClangCommentCommandList"
-    "ClangCommentHTMLNamedCharacterReferences" "ClangCommentHTMLTags" "ClangCommentHTMLTagsProperties" "ClangCommentNodes" "ClangDeclNodes"
-    "ClangDiagnosticAnalysis" "ClangDiagnosticAST" "ClangDiagnosticComment" "ClangDiagnosticCommon" "ClangDiagnosticDriver"
-    "ClangDiagnosticFrontend" "ClangDiagnosticGroups" "ClangDiagnosticIndexName" "ClangDiagnosticLex" "ClangDiagnosticParse"
-    "ClangDiagnosticSema" "ClangDiagnosticSerialization" "ClangStmtNodes"
-    "LLVMAnalysis" "LLVMAsmParser" "LLVMBitReader" "LLVMBitWriter" "LLVMCore" "LLVMDxcSupport" "LLVMDXIL" "LLVMDxilContainer"
-    "LLVMDxilPIXPasses" "LLVMDxilRootSignature" "LLVMDxrFallback" "LLVMHLSL" "LLVMInstCombine" "LLVMipa" "LLVMipo" "LLVMIRReader"
-    "LLVMLinker" "LLVMLTO" "LLVMMSSupport" "LLVMOption" "LLVMProfileData" "LLVMScalarOpts" "LLVMSupport" "LLVMTableGen" "LLVMTarget"
-    "LLVMTransformUtils" "LLVMVectorize"
-    "ClangDriverOptions" "DxcEtw" "intrinsics_gen" "TablegenHLSLOptions"
-    "clang-tblgen" "GIT_COMMIT_INFO_ALWAYS_REBUILD" "llvm-tblgen" "hlsl_version_autogen")
-    get_target_property(vsFolder ${target} FOLDER)	
-    if(NOT vsFolder)
-        set(vsFolder "")
-    endif()
-    set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
-endforeach()
-if(WIN32)
-    foreach(target
-        "dndxc" "dxa" "dxl" "dxopt" "dxr" "dxv"
-        "d3dcompiler_dxc_bridge" "dxlib_sample" "dxrfallbackcompiler"
-        "dxexp" "LLVMDxilDia")
-        get_target_property(vsFolder ${target} FOLDER)
-        if(NOT vsFolder)
-            set(vsFolder "")
-        endif()
-        set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
-    endforeach()
-endif()
+# foreach(target
+#     "clang" "dxc"
+#     "clangAnalysis" "clangAST" "clangASTMatchers" "clangBasic" "clangCodeGen" "clangDriver" "clangEdit" "clangFormat" "clangFrontend"
+#     "clangFrontendTool" "clangIndex" "clangLex" "clangParse" "clangRewrite" "clangRewriteFrontend" "clangSema" "clangSPIRV" "clangTooling"
+#     "clangToolingCore" "dxcompiler" "libclang"
+#     "ClangAttrClasses" "ClangAttrDump" "ClangAttrHasAttributeImpl" "ClangAttrImpl" "ClangAttrList" "ClangAttrParsedAttrImpl"
+#     "ClangAttrParsedAttrKinds" "ClangAttrParsedAttrList" "ClangAttrParserStringSwitches" "ClangAttrPCHRead" "ClangAttrPCHWrite"
+#     "ClangAttrSpellingListIndex" "ClangAttrTemplateInstantiate" "ClangAttrVisitor" "ClangCommentCommandInfo" "ClangCommentCommandList"
+#     "ClangCommentHTMLNamedCharacterReferences" "ClangCommentHTMLTags" "ClangCommentHTMLTagsProperties" "ClangCommentNodes" "ClangDeclNodes"
+#     "ClangDiagnosticAnalysis" "ClangDiagnosticAST" "ClangDiagnosticComment" "ClangDiagnosticCommon" "ClangDiagnosticDriver"
+#     "ClangDiagnosticFrontend" "ClangDiagnosticGroups" "ClangDiagnosticIndexName" "ClangDiagnosticLex" "ClangDiagnosticParse"
+#     "ClangDiagnosticSema" "ClangDiagnosticSerialization" "ClangStmtNodes"
+#     "LLVMAnalysis" "LLVMAsmParser" "LLVMBitReader" "LLVMBitWriter" "LLVMCore" "LLVMDxcSupport" "LLVMDXIL" "LLVMDxilContainer"
+#     "LLVMDxilPIXPasses" "LLVMDxilRootSignature" "LLVMDxrFallback" "LLVMHLSL" "LLVMInstCombine" "LLVMipa" "LLVMipo" "LLVMIRReader"
+#     "LLVMLinker" "LLVMLTO" "LLVMMSSupport" "LLVMOption" "LLVMProfileData" "LLVMScalarOpts" "LLVMSupport" "LLVMTableGen" "LLVMTarget"
+#     "LLVMTransformUtils" "LLVMVectorize"
+#     "ClangDriverOptions" "DxcEtw" "intrinsics_gen" "TablegenHLSLOptions"
+#     "clang-tblgen" "GIT_COMMIT_INFO_ALWAYS_REBUILD" "llvm-tblgen" "hlsl_version_autogen")
+#     get_target_property(vsFolder ${target} FOLDER)	
+#     if(NOT vsFolder)
+#         set(vsFolder "")
+#     endif()
+#     set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
+# endforeach()
+# if(WIN32)
+#     foreach(target
+#         "dndxc" "dxa" "dxl" "dxopt" "dxr" "dxv"
+#         "d3dcompiler_dxc_bridge" "dxlib_sample" "dxrfallbackcompiler"
+#         "dxexp" "LLVMDxilDia")
+#         get_target_property(vsFolder ${target} FOLDER)
+#         if(NOT vsFolder)
+#             set(vsFolder "")
+#         endif()
+#         set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
+#     endforeach()
+# endif()
 
-foreach(target
-    "core_tables" "enum_string_mapping" "extinst_tables"
-    "spirv-tools-pkg-config" "spirv-tools-shared-pkg-config"
-    "spirv-tools-build-version" "spirv-tools-header-DebugInfo"
-    "SPIRV-Tools-link" "SPIRV-Tools-shared"
-    "spirv-tools-vimsyntax" "spv-tools-debuginfo" "spv-tools-spv-amd-gs" "spv-tools-spv-amd-sb" "spv-tools-spv-amd-sevp" "spv-tools-spv-amd-stm"
-    "SPIRV-Tools" "SPIRV-Tools-opt"
-    "spirv-cross" "spirv-cross-core" "spirv-cross-cpp" "spirv-cross-glsl" "spirv-cross-hlsl" "spirv-cross-msl" "spirv-cross-reflect"
-    "spirv-cross-util"
-    "install-headers" "SPIRV-Headers-example" "SPIRV-Headers-example-1.1"
-    "gtest" "gtest_main")
-    get_target_property(vsFolder ${target} FOLDER)
-    if(NOT vsFolder)
-        set(vsFolder "")
-    endif()
-    set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
-endforeach()
+# foreach(target
+#     "core_tables" "enum_string_mapping" "extinst_tables"
+#     "spirv-tools-pkg-config" "spirv-tools-shared-pkg-config"
+#     "spirv-tools-build-version" "spirv-tools-header-DebugInfo"
+#     "SPIRV-Tools-link" "SPIRV-Tools-shared"
+#     "spirv-tools-vimsyntax" "spv-tools-debuginfo" "spv-tools-spv-amd-gs" "spv-tools-spv-amd-sb" "spv-tools-spv-amd-sevp" "spv-tools-spv-amd-stm"
+#     "SPIRV-Tools" "SPIRV-Tools-opt"
+#     "spirv-cross" "spirv-cross-core" "spirv-cross-cpp" "spirv-cross-glsl" "spirv-cross-hlsl" "spirv-cross-msl" "spirv-cross-reflect"
+#     "spirv-cross-util"
+#     "install-headers" "SPIRV-Headers-example" "SPIRV-Headers-example-1.1"
+#     "gtest" "gtest_main")
+#     get_target_property(vsFolder ${target} FOLDER)
+#     if(NOT vsFolder)
+#         set(vsFolder "")
+#     endif()
+#     set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
+# endforeach()
 
-foreach(target
-        "ShaderConductor" "ShaderConductorTest" "ShaderConductorCmd" "ShaderConductorWrapper" "CSharpPinvoke" "CopyDxcompiler"
-    )
-    get_target_property(vsFolder ${target} FOLDER)	
-    if(NOT vsFolder)
-        set(vsFolder "")
-    endif()
-    set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
-endforeach()
+# foreach(target
+#         "ShaderConductor" "ShaderConductorTest" "ShaderConductorCmd" "ShaderConductorWrapper" "CSharpPinvoke" "CopyDxcompiler"
+#     )
+#     get_target_property(vsFolder ${target} FOLDER)	
+#     if(NOT vsFolder)
+#         set(vsFolder "")
+#     endif()
+#     set_target_properties(${target} PROPERTIES FOLDER "External/ShaderConductor/${vsFolder}")
+# endforeach()
